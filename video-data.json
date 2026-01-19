@@ -1,0 +1,84 @@
+{
+  "title": "Rachel + Ben",
+  "videos": [
+    {
+      "id": 1,
+      "name": "The Wedding Film",
+      "videoUrl": "https://videos.prod.mediazilla.com/2/a/919793f9-c26e-42ff-bab8-6aa0de0c4411/cmaf_transcoded/o.m3u8",
+      "thumbnailUrl": "https://images.prod.mediazilla.com/2/a/8620ddb6-c3ba-4e7c-96e9-045e15837e0f/Rachel_Benjamin_highlights-00_02_47_10.jpg",
+      "duration": 335
+    },
+    {
+      "id": 2,
+      "name": "Morning Prep + First Look",
+      "videoUrl": "https://videos.prod.mediazilla.com/2/a/374f5af3-4aa2-4872-8c10-7e2fc4342027/cmaf_transcoded/o.m3u8",
+      "thumbnailUrl": "https://images.prod.mediazilla.com/2/a/3ba56cbc-a022-43de-adbb-066b3ef5841b/Morning_preps-00_02_35_06.jpg",
+      "duration": 310
+    },
+    {
+      "id": 3,
+      "name": "Ketubah Sign",
+      "videoUrl": "https://videos.prod.mediazilla.com/2/a/68f706c6-b1e5-4c14-a16f-5e3977ed5e7f/cmaf_transcoded/o.m3u8",
+      "thumbnailUrl": "https://images.prod.mediazilla.com/2/a/e61eb5c4-cb35-415a-af61-3a3c27f83a9c/Ketubah-00_06_01_17.jpg",
+      "duration": 723
+    },
+    {
+      "id": 4,
+      "name": "Ceremony Part 1",
+      "videoUrl": "https://videos.prod.mediazilla.com/2/a/538a148f-d635-4753-b63a-42e7169dcf40/cmaf_transcoded/o.m3u8",
+      "thumbnailUrl": "https://images.prod.mediazilla.com/2/a/b67d4b3a-153a-4124-8990-34a4b7bac24a/Ceremony_1-00_10_07_21.jpg",
+      "duration": 1215
+    },
+    {
+      "id": 5,
+      "name": "Ceremony Part 2",
+      "videoUrl": "https://videos.prod.mediazilla.com/2/a/6fc0621f-619c-4776-be38-83232718e315/cmaf_transcoded/o.m3u8",
+      "thumbnailUrl": "https://images.prod.mediazilla.com/2/a/0737c953-7458-4d00-a41a-afa201510db5/Ceremony_2-00_05_57_04.jpg",
+      "duration": 714
+    },
+    {
+      "id": 6,
+      "name": "Picture Session",
+      "videoUrl": "https://videos.prod.mediazilla.com/2/a/7c186ff7-de7c-4ca9-959e-1b7803b44a4f/cmaf_transcoded/o.m3u8",
+      "thumbnailUrl": "https://images.prod.mediazilla.com/2/a/477f9594-1291-4659-ab75-c04f7773472f/Picture_session-00_02_02_26.jpg",
+      "duration": 246
+    },
+    {
+      "id": 7,
+      "name": "Cocktail Hour",
+      "videoUrl": null,
+      "thumbnailUrl": "https://images.prod.mediazilla.com/2/a/f1f20719-d1fb-48c5-b266-4bc4d4250dde/Cocktail_hour-00_01_19_10.jpg",
+      "duration": null,
+      "note": "Video URL not available - please provide manually"
+    },
+    {
+      "id": 8,
+      "name": "Reception Part 1",
+      "videoUrl": "https://videos.prod.mediazilla.com/2/a/929633ec-1d67-4893-8a2e-f766987a505b/cmaf_transcoded/o.m3u8",
+      "thumbnailUrl": "https://images.prod.mediazilla.com/2/a/2e5e2459-3cff-412b-9401-66bee5cc4240/Reception_1-00_09_26_15.jpg",
+      "duration": 1133
+    },
+    {
+      "id": 9,
+      "name": "Reception Part 2",
+      "videoUrl": "https://videos.prod.mediazilla.com/2/a/d3a8e94d-211e-402e-83e7-6535fc3b15e4/cmaf_transcoded/o.m3u8",
+      "thumbnailUrl": "https://images.prod.mediazilla.com/2/a/3ea3214b-7989-40b9-85ce-77983ef417b3/Reception_2-00_08_34_11.jpg",
+      "duration": 1029
+    },
+    {
+      "id": 10,
+      "name": "Reception Part 3",
+      "videoUrl": "https://videos.prod.mediazilla.com/2/a/013874cf-c0ca-4e02-8523-6124460805d4/cmaf_transcoded/o.m3u8",
+      "thumbnailUrl": "https://images.prod.mediazilla.com/2/a/504bf7e1-c504-4f02-9e89-2d51c97e9ec7/Reception_3-00_10_04_12.jpg",
+      "duration": 1209
+    },
+    {
+      "id": 11,
+      "name": "Reception Part 4",
+      "videoUrl": "https://videos.prod.mediazilla.com/2/a/3c631f11-cc0e-4258-b8de-235622a2162c/cmaf_transcoded/o.m3u8",
+      "thumbnailUrl": "https://images.prod.mediazilla.com/2/a/2defc7f8-99c2-4bd0-a283-af8a871dea2e/Reception_4-00_08_11_20.jpg",
+      "duration": 983
+    }
+  ],
+  "posterFrame": "https://images.prod.mediazilla.com/2/a/e1f3135c-7da7-4ebc-b1f9-27f927e8ca59/o.jpg"
+}
