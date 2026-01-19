@@ -25,7 +25,7 @@ check_file() {
 }
 
 echo "Step 1: Download media from the original website"
-echo "Visit: https://clients.visiproductions.com/mail/link/b97e72cbdb671e29f1f31051"
+echo "Visit the original wedding website in your browser"
 echo ""
 echo "Instructions:"
 echo "1. Open the website in your browser"

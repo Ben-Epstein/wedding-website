@@ -64,16 +64,33 @@ function showVideoSection() {
     
     // Play video and audio when ready
     videoPlayer.addEventListener('loadeddata', () => {
-        videoPlayer.play();
+        // Handle autoplay promises to prevent uncaught errors
+        const playPromise = videoPlayer.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.log('Video autoplay prevented:', error);
+            });
+        }
+        
         if (audioSource.src) {
-            audioPlayer.play();
+            const audioPromise = audioPlayer.play();
+            if (audioPromise !== undefined) {
+                audioPromise.catch(error => {
+                    console.log('Audio autoplay prevented:', error);
+                });
+            }
         }
     }, { once: true });
     
     // Sync audio with video
     videoPlayer.addEventListener('play', () => {
         if (audioSource.src) {
-            audioPlayer.play();
+            const audioPromise = audioPlayer.play();
+            if (audioPromise !== undefined) {
+                audioPromise.catch(error => {
+                    console.log('Audio sync prevented:', error);
+                });
+            }
         }
     });
     
@@ -121,12 +138,14 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Smooth scroll animation for page load
+const PAGE_LOAD_FADE_DELAY = 100; // milliseconds
+
 window.addEventListener('load', () => {
     document.body.style.opacity = '0';
     setTimeout(() => {
         document.body.style.transition = 'opacity 0.5s ease';
         document.body.style.opacity = '1';
-    }, 100);
+    }, PAGE_LOAD_FADE_DELAY);
 });
 
 // Handle video end

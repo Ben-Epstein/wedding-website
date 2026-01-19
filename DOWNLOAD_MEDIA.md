@@ -1,6 +1,6 @@
 # How to Download Media Files from Original Website
 
-Since the original website at `https://clients.visiproductions.com/mail/link/b97e72cbdb671e29f1f31051` is server-side rendered, here's how to download all the media files:
+This guide explains how to download the photos, videos, and audio files from your original wedding website.
 
 ## Method 1: Using Browser Developer Tools
 
