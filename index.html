@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wedding</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Hero Section with Background Photo -->
+        <div class="hero-section" id="hero">
+            <div class="hero-content">
+                <h1 class="fade-in">Our Wedding</h1>
+                <div class="subtitle fade-in-delay">Celebrating Love</div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <nav class="video-nav">
+            <button class="nav-button" data-video="1" data-audio="1">
+                <span>Ceremony</span>
+            </button>
+            <button class="nav-button" data-video="2" data-audio="2">
+                <span>Reception</span>
+            </button>
+            <button class="nav-button" data-video="3" data-audio="3">
+                <span>First Dance</span>
+            </button>
+            <button class="nav-button" data-video="4" data-audio="4">
+                <span>Speeches</span>
+            </button>
+            <button class="nav-button" data-video="5" data-audio="5">
+                <span>Vows</span>
+            </button>
+            <button class="nav-button" data-video="6" data-audio="6">
+                <span>Highlights</span>
+            </button>
+            <button class="nav-button" data-video="7" data-audio="7">
+                <span>Thank You</span>
+            </button>
+        </nav>
+
+        <!-- Video Player Section -->
+        <div class="video-section" id="videoSection">
+            <button class="close-button" id="closeButton">&times;</button>
+            <div class="video-container">
+                <video id="videoPlayer" controls>
+                    <source id="videoSource" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <audio id="audioPlayer" style="display: none;">
+                    <source id="audioSource" src="" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+// Get DOM elements
+const navButtons = document.querySelectorAll('.nav-button');
+const videoSection = document.getElementById('videoSection');
+const videoPlayer = document.getElementById('videoPlayer');
+const audioPlayer = document.getElementById('audioPlayer');
+const videoSource = document.getElementById('videoSource');
+const audioSource = document.getElementById('audioSource');
+const closeButton = document.getElementById('closeButton');
+
+// Video and audio file mappings
+const mediaFiles = {
+    videos: {
+        1: 'assets/videos/ceremony.mp4',
+        2: 'assets/videos/reception.mp4',
+        3: 'assets/videos/first-dance.mp4',
+        4: 'assets/videos/speeches.mp4',
+        5: 'assets/videos/vows.mp4',
+        6: 'assets/videos/highlights.mp4',
+        7: 'assets/videos/thank-you.mp4'
+    },
+    audios: {
+        1: 'assets/audios/ceremony.mp3',
+        2: 'assets/audios/reception.mp3',
+        3: 'assets/audios/first-dance.mp3',
+        4: 'assets/audios/speeches.mp3',
+        5: 'assets/audios/vows.mp3',
+        6: 'assets/audios/highlights.mp3',
+        7: 'assets/audios/thank-you.mp3'
+    }
+};
+
+// Add click event listeners to navigation buttons
+navButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const videoId = button.getAttribute('data-video');
+        const audioId = button.getAttribute('data-audio');
+        
+        // Load video and audio
+        loadMedia(videoId, audioId);
+        
+        // Show video section with animation
+        showVideoSection();
+    });
+});
+
+// Function to load media files
+function loadMedia(videoId, audioId) {
+    // Set video source
+    const videoPath = mediaFiles.videos[videoId];
+    videoSource.src = videoPath;
+    videoPlayer.load();
+    
+    // Set audio source if available
+    const audioPath = mediaFiles.audios[audioId];
+    if (audioPath) {
+        audioSource.src = audioPath;
+        audioPlayer.load();
+    }
+}
+
+// Function to show video section
+function showVideoSection() {
+    videoSection.classList.add('active');
+    
+    // Play video and audio when ready
+    videoPlayer.addEventListener('loadeddata', () => {
+        videoPlayer.play();
+        if (audioSource.src) {
+            audioPlayer.play();
+        }
+    }, { once: true });
+    
+    // Sync audio with video
+    videoPlayer.addEventListener('play', () => {
+        if (audioSource.src) {
+            audioPlayer.play();
+        }
+    });
+    
+    videoPlayer.addEventListener('pause', () => {
+        audioPlayer.pause();
+    });
+    
+    videoPlayer.addEventListener('seeked', () => {
+        audioPlayer.currentTime = videoPlayer.currentTime;
+    });
+}
+
+// Function to hide video section
+function hideVideoSection() {
+    videoSection.classList.remove('active');
+    
+    // Stop video and audio
+    videoPlayer.pause();
+    audioPlayer.pause();
+    
+    // Reset to beginning
+    videoPlayer.currentTime = 0;
+    audioPlayer.currentTime = 0;
+    
+    // Clear sources
+    videoSource.src = '';
+    audioSource.src = '';
+}
+
+// Close button event listener
+closeButton.addEventListener('click', hideVideoSection);
+
+// Close video section when clicking outside the video
+videoSection.addEventListener('click', (e) => {
+    if (e.target === videoSection) {
+        hideVideoSection();
+    }
+});
+
+// Close video section with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoSection.classList.contains('active')) {
+        hideVideoSection();
+    }
+});
+
+// Smooth scroll animation for page load
+window.addEventListener('load', () => {
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        document.body.style.transition = 'opacity 0.5s ease';
+        document.body.style.opacity = '1';
+    }, 100);
+});
+
+// Handle video end
+videoPlayer.addEventListener('ended', () => {
+    // Optionally auto-close after video ends
+    // hideVideoSection();
+});
