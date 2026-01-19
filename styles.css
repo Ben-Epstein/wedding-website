@@ -266,7 +266,9 @@ html {
     
     .nav-button {
         padding: 15px 20px;
-        font-size: 0.95rem;
+        font-size: 1rem;
+        font-weight: 200;
+        background: rgba(35, 35, 35, 0.7);
         width: 100%;
         min-width: 280px;
         max-width: 400px;
