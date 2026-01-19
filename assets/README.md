@@ -7,23 +7,31 @@ This directory contains all media assets for the wedding website.
 ```
 assets/
 ├── photos/
-│   └── main-photo.jpg       # Main landing page background photo
+│   └── main-photo.jpg                      # Main landing page background photo
 ├── videos/
-│   ├── ceremony.mp4         # Button 1: Ceremony video
-│   ├── reception.mp4        # Button 2: Reception video
-│   ├── first-dance.mp4      # Button 3: First Dance video
-│   ├── speeches.mp4         # Button 4: Speeches video
-│   ├── vows.mp4            # Button 5: Vows video
-│   ├── highlights.mp4       # Button 6: Highlights video
-│   └── thank-you.mp4        # Button 7: Thank You video
+│   ├── the-wedding-film.mp4                # Button 1: The Wedding Film
+│   ├── morning-prep-first-look.mp4         # Button 2: Morning Prep + First Look
+│   ├── ketubah-sign.mp4                    # Button 3: Ketubah Sign
+│   ├── ceremony-part-1.mp4                 # Button 4: Ceremony Part 1
+│   ├── ceremony-part-2.mp4                 # Button 5: Ceremony Part 2
+│   ├── picture-session.mp4                 # Button 6: Picture Session
+│   ├── cocktail-hour.mp4                   # Button 7: Cocktail Hour
+│   ├── reception-part-1.mp4                # Button 8: Reception Part 1
+│   ├── reception-part-2.mp4                # Button 9: Reception Part 2
+│   ├── reception-part-3.mp4                # Button 10: Reception Part 3
+│   └── reception-part-4.mp4                # Button 11: Reception Part 4
 └── audios/
-    ├── ceremony.mp3         # Audio for ceremony video
-    ├── reception.mp3        # Audio for reception video
-    ├── first-dance.mp3      # Audio for first dance video
-    ├── speeches.mp3         # Audio for speeches video
-    ├── vows.mp3            # Audio for vows video
-    ├── highlights.mp3       # Audio for highlights video
-    └── thank-you.mp3        # Audio for thank you video
+    ├── the-wedding-film.mp3                # Audio for The Wedding Film
+    ├── morning-prep-first-look.mp3         # Audio for Morning Prep + First Look
+    ├── ketubah-sign.mp3                    # Audio for Ketubah Sign
+    ├── ceremony-part-1.mp3                 # Audio for Ceremony Part 1
+    ├── ceremony-part-2.mp3                 # Audio for Ceremony Part 2
+    ├── picture-session.mp3                 # Audio for Picture Session
+    ├── cocktail-hour.mp3                   # Audio for Cocktail Hour
+    ├── reception-part-1.mp3                # Audio for Reception Part 1
+    ├── reception-part-2.mp3                # Audio for Reception Part 2
+    ├── reception-part-3.mp3                # Audio for Reception Part 3
+    └── reception-part-4.mp3                # Audio for Reception Part 4
 ```
 
 ## Adding Your Media Files

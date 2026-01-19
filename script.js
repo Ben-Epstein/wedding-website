@@ -10,22 +10,30 @@ const closeButton = document.getElementById('closeButton');
 // Video and audio file mappings
 const mediaFiles = {
     videos: {
-        1: 'assets/videos/ceremony.mp4',
-        2: 'assets/videos/reception.mp4',
-        3: 'assets/videos/first-dance.mp4',
-        4: 'assets/videos/speeches.mp4',
-        5: 'assets/videos/vows.mp4',
-        6: 'assets/videos/highlights.mp4',
-        7: 'assets/videos/thank-you.mp4'
+        1: 'assets/videos/the-wedding-film.mp4',
+        2: 'assets/videos/morning-prep-first-look.mp4',
+        3: 'assets/videos/ketubah-sign.mp4',
+        4: 'assets/videos/ceremony-part-1.mp4',
+        5: 'assets/videos/ceremony-part-2.mp4',
+        6: 'assets/videos/picture-session.mp4',
+        7: 'assets/videos/cocktail-hour.mp4',
+        8: 'assets/videos/reception-part-1.mp4',
+        9: 'assets/videos/reception-part-2.mp4',
+        10: 'assets/videos/reception-part-3.mp4',
+        11: 'assets/videos/reception-part-4.mp4'
     },
     audios: {
-        1: 'assets/audios/ceremony.mp3',
-        2: 'assets/audios/reception.mp3',
-        3: 'assets/audios/first-dance.mp3',
-        4: 'assets/audios/speeches.mp3',
-        5: 'assets/audios/vows.mp3',
-        6: 'assets/audios/highlights.mp3',
-        7: 'assets/audios/thank-you.mp3'
+        1: 'assets/audios/the-wedding-film.mp3',
+        2: 'assets/audios/morning-prep-first-look.mp3',
+        3: 'assets/audios/ketubah-sign.mp3',
+        4: 'assets/audios/ceremony-part-1.mp3',
+        5: 'assets/audios/ceremony-part-2.mp3',
+        6: 'assets/audios/picture-session.mp3',
+        7: 'assets/audios/cocktail-hour.mp3',
+        8: 'assets/audios/reception-part-1.mp3',
+        9: 'assets/audios/reception-part-2.mp3',
+        10: 'assets/audios/reception-part-3.mp3',
+        11: 'assets/audios/reception-part-4.mp3'
     }
 };
 
