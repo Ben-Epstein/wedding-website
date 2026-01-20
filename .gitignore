@@ -17,6 +17,7 @@ test-site.js
 # Data files (keep video-data.json for reference)
 *.json
 !video-data.json
+!video-data-dev.json
 
 # Screenshots
 *.png
