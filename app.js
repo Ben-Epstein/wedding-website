@@ -120,7 +120,26 @@ function seekTo(e) {
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
     const percent = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
     if (!isNaN(videoPlayer.duration)) {
-        videoPlayer.currentTime = percent * videoPlayer.duration;
+        const targetTime = percent * videoPlayer.duration;
+
+        // Check if target is within seekable range
+        const seekable = videoPlayer.seekable;
+        if (seekable.length > 0) {
+            let canSeek = false;
+            for (let i = 0; i < seekable.length; i++) {
+                if (targetTime >= seekable.start(i) && targetTime <= seekable.end(i)) {
+                    canSeek = true;
+                    break;
+                }
+            }
+            // If not seekable, clamp to nearest seekable end
+            if (!canSeek) {
+                const lastEnd = seekable.end(seekable.length - 1);
+                videoPlayer.currentTime = Math.min(targetTime, lastEnd);
+                return;
+            }
+        }
+        videoPlayer.currentTime = targetTime;
     }
 }
 
