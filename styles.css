@@ -4,99 +4,144 @@
     box-sizing: border-box;
 }
 
-:root {
-    --bg-primary: #1E1F21;
-    --bg-secondary: #2a2b2d;
-    --bg-hover: #3a3b3d;
-    --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
-    --accent-color: #ca2129;
-    --border-radius: 8px;
-}
-
 html, body {
     height: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-}
-
-.app-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.header {
-    background-color: var(--bg-primary);
-    padding: 16px 24px;
-    text-align: center;
-    border-bottom: 1px solid var(--bg-secondary);
-}
-
-.title {
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-
-.main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.video-section {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: #000;
-}
-
-.video-container {
-    position: relative;
-    width: 100%;
-    max-width: 1280px;
-    aspect-ratio: 16 / 9;
-    background-color: #000;
-    border-radius: var(--border-radius);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #000;
     overflow: hidden;
+}
+
+/* ========== HOME VIEW ========== */
+.home-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.home-view.hidden {
+    display: none;
+}
+
+.poster-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 10;
+}
+
+.menu-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: max-content;
+}
+
+.menu-item {
+    background: rgba(45, 45, 45, 0.85);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+
+.menu-item:hover {
+    background: rgba(60, 60, 60, 0.9);
+}
+
+/* ========== VIDEO VIEW ========== */
+.video-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: none;
+}
+
+.video-view.active {
+    display: block;
 }
 
 #video-player {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    background-color: #000;
 }
 
-.loading-overlay {
+.back-btn {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 20px;
+    left: 20px;
+    width: 44px;
+    height: 44px;
+    background: rgba(45, 45, 45, 0.85);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
+    transition: opacity 0.3s, background 0.2s;
 }
 
-.loading-overlay.active {
+.back-btn:hover {
+    background: rgba(60, 60, 60, 0.9);
+}
+
+.back-btn svg {
+    width: 24px;
+    height: 24px;
+    color: #fff;
+}
+
+.video-view.show-controls .back-btn {
     opacity: 1;
-    visibility: visible;
+}
+
+/* ========== LOADING SPINNER ========== */
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.loading-spinner.active {
+    display: block;
 }
 
 .spinner {
     width: 48px;
     height: 48px;
-    border: 4px solid var(--bg-secondary);
-    border-top-color: var(--accent-color);
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #fff;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -105,125 +150,23 @@ html, body {
     to { transform: rotate(360deg); }
 }
 
-.menu-section {
-    background-color: var(--bg-primary);
-    border-top: 1px solid var(--bg-secondary);
-    padding: 16px 0;
-}
-
-.menu-scroll {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.menu-scroll::-webkit-scrollbar {
-    display: none;
-}
-
-.menu-items {
-    display: flex;
-    gap: 12px;
-    padding: 0 24px;
-    min-width: max-content;
-}
-
-.menu-item {
-    flex-shrink: 0;
-    background-color: var(--bg-secondary);
-    border: none;
-    border-radius: var(--border-radius);
-    padding: 12px 20px;
-    color: var(--text-primary);
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-    white-space: nowrap;
-}
-
-.menu-item:hover {
-    background-color: var(--bg-hover);
-}
-
-.menu-item:active {
-    transform: scale(0.98);
-}
-
-.menu-item.active {
-    background-color: var(--accent-color);
-}
-
-.menu-item.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-/* Responsive adjustments */
+/* ========== MOBILE ========== */
 @media (max-width: 768px) {
-    .header {
-        padding: 12px 16px;
-    }
-
-    .title {
-        font-size: 20px;
-    }
-
-    .video-section {
-        padding: 0;
-    }
-
-    .video-container {
-        border-radius: 0;
-        max-width: 100%;
-    }
-
-    .menu-section {
-        padding: 12px 0;
+    .menu-bar {
+        padding: 12px;
     }
 
     .menu-items {
-        padding: 0 16px;
         gap: 8px;
     }
 
     .menu-item {
-        padding: 10px 16px;
+        padding: 8px 14px;
         font-size: 13px;
     }
-}
 
-@media (min-width: 1024px) {
-    .main-content {
-        flex-direction: row;
-    }
-
-    .video-section {
-        flex: 1;
-    }
-
-    .menu-section {
-        width: 320px;
-        border-top: none;
-        border-left: 1px solid var(--bg-secondary);
-        padding: 20px 0;
-    }
-
-    .menu-scroll {
-        overflow-x: visible;
-        overflow-y: auto;
-        max-height: calc(100vh - 100px);
-    }
-
-    .menu-items {
-        flex-direction: column;
-        padding: 0 20px;
-        min-width: auto;
-    }
-
-    .menu-item {
-        width: 100%;
-        text-align: left;
+    .back-btn {
+        top: 12px;
+        left: 12px;
     }
 }
