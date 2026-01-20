@@ -320,6 +320,8 @@ html, body {
         top: 50%;
         transform: translateY(-50%);
         overflow-x: visible;
+        overflow-y: auto;
+        max-height: 100%;
     }
 
     .menu-items {
