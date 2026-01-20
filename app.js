@@ -21,6 +21,7 @@ const backBtn = document.getElementById('back-btn');
 const loadingSpinner = document.getElementById('loading-spinner');
 const progressBar = document.getElementById('progress-bar');
 const progressFilled = document.getElementById('progress-filled');
+const progressTooltip = document.getElementById('progress-tooltip');
 const timeDisplay = document.getElementById('time-display');
 const volumeBtn = document.getElementById('volume-btn');
 const fullscreenBtn = document.getElementById('fullscreen-btn');
@@ -28,6 +29,15 @@ const playPauseBtn = document.getElementById('play-pause-btn');
 
 let hideTimeout = null;
 let goHomeTimeout = null;
+
+// Stagger fade-in of menu buttons
+function showMenuButtons() {
+    const buttons = menuItems.querySelectorAll('.menu-item');
+    buttons.forEach((btn, i) => {
+        btn.classList.remove('visible');
+        setTimeout(() => btn.classList.add('visible'), i * 80);
+    });
+}
 
 // Create menu buttons
 function init() {
@@ -38,6 +48,7 @@ function init() {
         btn.addEventListener('click', () => playVideo(index));
         menuItems.appendChild(btn);
     });
+    showMenuButtons();
 }
 
 // Play a video
@@ -66,6 +77,7 @@ function goHome() {
     // Start fade transition
     videoView.classList.remove('active');
     homeView.classList.remove('fade-out');
+    showMenuButtons();
 
     // Stop video after fade completes
     goHomeTimeout = setTimeout(() => {
@@ -236,12 +248,22 @@ videoPlayer.addEventListener('loadstart', () => loadingSpinner.classList.add('ac
 videoPlayer.addEventListener('canplay', () => loadingSpinner.classList.remove('active'));
 videoPlayer.addEventListener('waiting', () => loadingSpinner.classList.add('active'));
 videoPlayer.addEventListener('playing', () => loadingSpinner.classList.remove('active'));
+videoPlayer.addEventListener('ended', () => setTimeout(goHome, 500));
 
 progressBar.addEventListener('mousedown', startScrub);
 progressBar.addEventListener('touchstart', startScrub, { passive: false });
 progressBar.addEventListener('click', (e) => {
     e.stopPropagation();
     seekTo(e);
+});
+progressBar.addEventListener('mousemove', (e) => {
+    const rect = progressBar.getBoundingClientRect();
+    const percent = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    const time = percent * videoPlayer.duration;
+    if (!isNaN(time)) {
+        progressTooltip.textContent = formatTime(time);
+        progressTooltip.style.left = `${percent * 100}%`;
+    }
 });
 playPauseBtn.addEventListener('click', togglePlayPause);
 volumeBtn.addEventListener('click', toggleMute);
