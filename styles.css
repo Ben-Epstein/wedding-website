@@ -18,10 +18,14 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
+    opacity: 1;
+    transition: opacity 2s ease;
+    z-index: 1;
 }
 
-.home-view.hidden {
-    display: none;
+.home-view.fade-out {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .poster-image {
@@ -56,20 +60,22 @@ html, body {
 }
 
 .menu-item {
-    background: rgba(45, 45, 45, 0.85);
+    background: rgba(0, 0, 0, 0.6);
     border: none;
-    border-radius: 6px;
-    padding: 10px 18px;
+    border-radius: 0;
+    padding: 9px 24px;
     color: #fff;
-    font-size: 14px;
-    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
     cursor: pointer;
     white-space: nowrap;
+    text-align: center;
     transition: background 0.2s;
 }
 
 .menu-item:hover {
-    background: rgba(60, 60, 60, 0.9);
+    background: #5D14E0;
 }
 
 /* ========== VIDEO VIEW ========== */
@@ -80,11 +86,16 @@ html, body {
     width: 100%;
     height: 100%;
     background: #000;
-    display: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 2s ease;
+    z-index: 0;
 }
 
 .video-view.active {
-    display: block;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
 }
 
 #video-player {
@@ -99,9 +110,9 @@ html, body {
     left: 20px;
     width: 44px;
     height: 44px;
-    background: rgba(45, 45, 45, 0.85);
+    background: rgba(0, 0, 0, 0.8);
     border: none;
-    border-radius: 6px;
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -111,7 +122,7 @@ html, body {
 }
 
 .back-btn:hover {
-    background: rgba(60, 60, 60, 0.9);
+    background: #5D14E0;
 }
 
 .back-btn svg {
@@ -120,8 +131,134 @@ html, body {
     color: #fff;
 }
 
-.video-view.show-controls .back-btn {
+.video-view.show-controls .back-btn,
+.video-view.show-controls .video-controls {
     opacity: 1;
+}
+
+/* ========== VIDEO CONTROLS ========== */
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.video-view.show-controls .video-controls {
+    pointer-events: auto;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+.progress-bar:hover {
+    height: 8px;
+}
+
+.progress-filled {
+    height: 100%;
+    background: #5D14E0;
+    border-radius: 3px;
+    width: 0%;
+    pointer-events: none;
+}
+
+.controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.controls-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.time-display {
+    color: #fff;
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.controls-right {
+    display: flex;
+    gap: 12px;
+}
+
+/* Play/Pause icon states */
+.control-btn .icon-pause {
+    display: none;
+}
+
+.control-btn.playing .icon-play {
+    display: none;
+}
+
+.control-btn.playing .icon-pause {
+    display: block;
+}
+
+.control-btn {
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.control-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.control-btn svg {
+    width: 22px;
+    height: 22px;
+    color: #fff;
+    fill: #fff;
+}
+
+/* Volume icon states */
+.control-btn .volume-off {
+    display: none;
+}
+
+.control-btn.muted .volume-on {
+    display: none;
+}
+
+.control-btn.muted .volume-off {
+    display: block;
+}
+
+/* Fullscreen icon states */
+.control-btn .fs-compress {
+    display: none;
+}
+
+.video-view.is-fullscreen .control-btn .fs-expand {
+    display: none;
+}
+
+.video-view.is-fullscreen .control-btn .fs-compress {
+    display: block;
 }
 
 /* ========== LOADING SPINNER ========== */
