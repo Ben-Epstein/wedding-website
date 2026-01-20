@@ -1,16 +1,4 @@
-const videos = [
-    { name: "The Wedding Film", url: "audio-videos/The Wedding Film.mp4" },
-    { name: "Morning Prep + First Look", url: "audio-videos/Morning Prep + First Look.mp4" },
-    { name: "Ketubah Sign", url: "audio-videos/Ketubah Sign.mp4" },
-    { name: "Ceremony Part 1", url: "audio-videos/Ceremony Part 1.mp4" },
-    { name: "Ceremony Part 2", url: "audio-videos/Ceremony Part 2.mp4" },
-    { name: "Picture Session", url: "audio-videos/Picture Session.mp4" },
-    { name: "Cocktail Hour", url: "audio-videos/Cocktail Hour.mp4" },
-    { name: "Reception Part 1", url: "audio-videos/Reception Part 1.mp4" },
-    { name: "Reception Part 2", url: "audio-videos/Reception Part 2.mp4" },
-    { name: "Reception Part 3", url: "audio-videos/Reception Part 3.mp4" },
-    { name: "Reception Part 4", url: "audio-videos/Reception Part 4.mp4" }
-];
+let videos = [];
 
 // DOM Elements
 const homeView = document.getElementById('home-view');
@@ -39,8 +27,15 @@ function showMenuButtons() {
     });
 }
 
-// Create menu buttons
-function init() {
+// Load video data and create menu buttons
+async function init() {
+    const response = await fetch('video-data.json');
+    const data = await response.json();
+    videos = data.videos.map(v => ({
+        name: v.name,
+        url: `${data.baseUrl}/${encodeURIComponent(v.file)}`
+    }));
+
     videos.forEach((video, index) => {
         const btn = document.createElement('button');
         btn.className = 'menu-item';
