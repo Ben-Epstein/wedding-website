@@ -124,7 +124,14 @@ let isScrubbing = false;
 
 function seekTo(e) {
     const rect = progressBar.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    let clientX;
+    if (e.touches && e.touches.length > 0) {
+        clientX = e.touches[0].clientX;
+    } else if (e.changedTouches && e.changedTouches.length > 0) {
+        clientX = e.changedTouches[0].clientX;
+    } else {
+        clientX = e.clientX;
+    }
     const percent = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
     if (!isNaN(videoPlayer.duration)) {
         const targetTime = percent * videoPlayer.duration;

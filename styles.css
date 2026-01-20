@@ -340,4 +340,13 @@ html, body {
         top: 12px;
         left: 12px;
     }
+
+    .progress-bar {
+        height: 12px;
+        margin-bottom: 16px;
+    }
+
+    .progress-tooltip {
+        display: none;
+    }
 }
